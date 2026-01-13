@@ -3,6 +3,7 @@ import './global.css';
 import { Inter } from 'next/font/google';
 
 export const metadata = {
+  metadataBase: new URL('https://forui.dev'),
   title: {
     template: '%s – Forui',
   },
