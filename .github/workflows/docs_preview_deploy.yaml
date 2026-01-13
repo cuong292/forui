@@ -47,7 +47,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy ./docs-snippets--build --project-name=${{ vars.CLOUDFLARE_DEMO_PROJECT_NAME }} --branch=${{ steps.escape-branch.outputs.branch }}-${{ steps.short-sha.outputs.sha }}
+          command: pages deploy ./docs-snippets--build --project-name=${{ vars.CLOUDFLARE_SNIPPETS_PROJECT_NAME }} --branch=${{ steps.escape-branch.outputs.branch }}-${{ steps.short-sha.outputs.sha }}
 
       # Deploy docs
       - uses: actions/checkout@v6

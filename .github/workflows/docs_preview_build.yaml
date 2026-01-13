@@ -32,7 +32,7 @@ jobs:
           path: ./docs_snippets/build/web
           retention-days: 1
 
-      # Escape branch name and create short SHA for demo URL
+      # Escape branch name and create short SHA for snippets URL
       - id: escape-branch
         run: |
           BRANCH="${{ github.event.pull_request.head.ref }}"
@@ -55,9 +55,9 @@ jobs:
       - working-directory: ./docs
         run: pnpm exec opennextjs-cloudflare build
         env:
-          # We don't use the CLOUDFLARE_DEMO_PROJECT_NAME environment variable since it requires us to set the
+          # We don't use the CLOUDFLARE_SNIPPETS_PROJECT_NAME environment variable since it requires us to set the
           # environment for this workflow, unintentionally leaking environment secrets.
-          NEXT_PUBLIC_DEMO_URL: https://${{ steps.escape-branch.outputs.branch }}-${{ steps.short-sha.outputs.sha }}.forui-demo-dev.pages.dev
+          NEXT_PUBLIC_SNIPPETS_URL: https://${{ steps.escape-branch.outputs.branch }}-${{ steps.short-sha.outputs.sha }}.forui-docs-snippets-dev.pages.dev
       - uses: actions/upload-artifact@v6
         with:
           name: docs-build

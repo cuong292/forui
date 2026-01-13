@@ -14,7 +14,7 @@ function Component({ name, variant = 'default', height = 200, query = {} }: Prop
   const { resolvedTheme } = useTheme();
   const params = { ...query, theme: `zinc-${resolvedTheme}` };
 
-  const url = process.env['NEXT_PUBLIC_DEMO_URL'];
+  const url = process.env['NEXT_PUBLIC_SNIPPETS_URL'];
 
   return (
     <iframe
